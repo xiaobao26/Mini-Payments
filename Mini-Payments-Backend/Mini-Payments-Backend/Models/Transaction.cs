@@ -1,9 +1,15 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Mini_Payments_Backend.Models;
 
 public class Transaction
 {
     public Guid Id { get; private set; }
+    
+    [Required]
     public decimal Amount { get; private set; }
+    
+    [Required]
     public string Currency { get; private set; }
     public TransactionType TransactionType { get; private set; }
     public DateTimeOffset CreatedAt { get; private set; }
