@@ -22,8 +22,9 @@ public class AccountsService: IAccountService
         var account = _mapper.Map<Account>(dto);
         
         _dbcontext.Accounts.Add(account);
-        await _dbcontext.SaveChangesAsync();
-
+        // await _dbcontext.SaveChangesAsync();
+        var count = await _dbcontext.SaveChangesAsync();
+        Console.WriteLine($"▶ SaveChangesAsync wrote {count} row(s)");
         var res = _mapper.Map<AccountResponseDto>(account);
         return res;
     }

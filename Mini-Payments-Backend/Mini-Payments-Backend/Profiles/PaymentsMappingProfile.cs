@@ -9,11 +9,18 @@ public class PaymentsMappingProfile: Profile
 {
     public PaymentsMappingProfile()
     {
+        // Account
         CreateMap<CreateAccountDto, Account>()
-            .ConstructUsing(dto => new Account(dto.UserName, dto.Email, dto.PhoneNumber))
             .ReverseMap();
 
         CreateMap<AccountResponseDto, Account>()
+            .ReverseMap();
+        
+        // Transaction
+        CreateMap<CreateTransactionDto, Transaction>()
+            .ReverseMap();
+
+        CreateMap<TransactionResonseDto, Transaction>()
             .ReverseMap();
     }
 }
