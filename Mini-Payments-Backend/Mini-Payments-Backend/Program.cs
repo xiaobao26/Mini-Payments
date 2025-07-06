@@ -22,6 +22,7 @@ builder.Services.AddDbContext<PaymentsContext>(options =>
 
 builder.Services.AddAutoMapper(typeof(PaymentsMappingProfile));
 builder.Services.AddScoped<IAccountService, AccountsService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

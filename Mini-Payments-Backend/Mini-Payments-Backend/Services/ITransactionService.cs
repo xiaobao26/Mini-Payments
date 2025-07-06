@@ -6,5 +6,5 @@ namespace Mini_Payments_Backend.Services;
 public interface ITransactionService
 {
     Task<TransactionResonseDto> CreateTransactionAsync(Guid accountId, CreateTransactionDto dto);
-    Task<IEnumerable<TransactionResonseDto>> GetAllTransactionsByAccountId(Guid accountId);
+    Task<List<TransactionResonseDto>> GetAllTransactionsByAccountId(Guid accountId);
 }

@@ -10,10 +10,12 @@ namespace Mini_Payments_Backend.Controllers;
 public class TransactionsController: ControllerBase
 {
     private readonly ITransactionService _transactionService;
+    private readonly ILogger<TransactionsController> _logger;
 
-    public TransactionsController(ITransactionService transactionService)
+    public TransactionsController(ITransactionService transactionService, ILogger<TransactionsController> logger)
     {
         _transactionService = transactionService;
+        _logger = logger;
     }
 
     [HttpPost]
@@ -27,6 +29,7 @@ public class TransactionsController: ControllerBase
         }
         catch (Exception ex)
         {
+            _logger.LogError( ex, "Error creating transaction");
             return StatusCode(500, "Unhandled error occured");
         }
     }

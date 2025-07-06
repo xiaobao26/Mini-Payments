@@ -28,7 +28,7 @@ public class TransactionService: ITransactionService
         var transaction = Transaction.Create(
             accountId: accountId,
             amount: dto.Amount,
-            currency: dto.Curreny,
+            currency: dto.Currency,
             transactionType: dto.TransactionType
         );
         
@@ -44,12 +44,12 @@ public class TransactionService: ITransactionService
     }
 
 
-    public async Task<IEnumerable<TransactionResonseDto>> GetAllTransactionsByAccountId(Guid accountId)
+    public async Task<List<TransactionResonseDto>> GetAllTransactionsByAccountId(Guid accountId)
     {
         var list = await _paymentsContext.Transactions
             .Where(t => t.AccountId == accountId)
             .OrderByDescending(t => t.CreatedAt)
             .ToListAsync();
-        return list.Select(t => _mapper.Map<TransactionResonseDto>(t));
+        return list.Select(t => _mapper.Map<TransactionResonseDto>(t)).ToList();
     }
 }
