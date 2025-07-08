@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-Notification-523cdd5f-8643-412f-90ff-fa9bb3f795e5</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Handlebars.Net" Version="2.1.6" />
+        <PackageReference Include="MailKit" Version="4.13.0" />
+        <PackageReference Include="MassTransit" Version="8.5.1-develop.2331" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.1-develop.2331" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Shared\Shared.csproj" />
+    </ItemGroup>
+</Project>

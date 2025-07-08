@@ -1,5 +1,7 @@
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Mini_Payments_Backend.Models;
+using Mini_Payments_Backend.Notification;
 using Mini_Payments_Backend.Profiles;
 using Mini_Payments_Backend.Services;
 
@@ -7,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
+
+// Bind the "Twilio" section from configuration into TwilioSettings
+builder.Services.Configure<TwilioSettings>(
+    builder.Configuration.GetSection("Twilio"));
 
 // Register DbContext Service with Npgsql in Container
 builder.Services.AddDbContext<PaymentsContext>(options =>
@@ -23,6 +29,24 @@ builder.Services.AddDbContext<PaymentsContext>(options =>
 builder.Services.AddAutoMapper(typeof(PaymentsMappingProfile));
 builder.Services.AddScoped<IAccountService, AccountsService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
+
+// Message Broker
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host("localhost", "/", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
+    });
+});
+
+// Register your TwilioSmsSender as the implementation of ISmsSender
+builder.Services.AddSingleton<ISmsSender, TwilioSmsSender>();
+
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

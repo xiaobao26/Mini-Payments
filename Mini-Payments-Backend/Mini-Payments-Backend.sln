@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mini-Payments-Backend", "Mini-Payments-Backend\Mini-Payments-Backend.csproj", "{73ABDCDE-881E-4EDE-9336-B73D72CF3B7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notification", "Notification\Notification.csproj", "{D558326E-4F81-49A0-AC8A-CC2BD1EC8824}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{F847F8D0-A463-4AC0-8B8D-BE3E1D2E0905}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{73ABDCDE-881E-4EDE-9336-B73D72CF3B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73ABDCDE-881E-4EDE-9336-B73D72CF3B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73ABDCDE-881E-4EDE-9336-B73D72CF3B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D558326E-4F81-49A0-AC8A-CC2BD1EC8824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D558326E-4F81-49A0-AC8A-CC2BD1EC8824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D558326E-4F81-49A0-AC8A-CC2BD1EC8824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D558326E-4F81-49A0-AC8A-CC2BD1EC8824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F847F8D0-A463-4AC0-8B8D-BE3E1D2E0905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F847F8D0-A463-4AC0-8B8D-BE3E1D2E0905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F847F8D0-A463-4AC0-8B8D-BE3E1D2E0905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F847F8D0-A463-4AC0-8B8D-BE3E1D2E0905}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
